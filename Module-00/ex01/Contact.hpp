@@ -6,7 +6,7 @@
 /*   By: frukundo <frukundo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 05:49:29 by frukundo          #+#    #+#             */
-/*   Updated: 2024/03/23 06:50:30 by frukundo         ###   ########.fr       */
+/*   Updated: 2024/03/24 04:36:19 by frukundo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,31 @@
 
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 class Contact
 {
 private:
-	std::string _fname;
-	std::string _lname;
-	std::string _nickname;
-	std::string _phone_num;
-	std::string _darkestSecret;
-	int			_index;
-
-	std::string formatLen(std::string str) const;
-	std::string getInput(std::string str) const;
+	std::string first_name;
+	std::string last_name;
+	std::string nickname;
+	std::string phone_number;
+	std::string darkest_secret;
 
 public:
 	Contact();
 	~Contact();
-	void		view(int index) const;
-	void		init(void);
-	void		display(int index) const;
-	void		setIndex(int i);
+	void setFirstName(std::string str);
+	void setLastName(std::string str);
+	void setNickName(std::string str);
+	void setPhoneNumber(std::string str);
+	void setDarkestSecret(std::string str);
+
+	const std::string &getFirstName(void) const;
+	const std::string &getLastName(void) const;
+	const std::string &getNickname(void) const;
+	const std::string &getPhoneNumber(void) const;
+	const std::string &getDarkestSecret(void) const;
 };
 
 #endif
