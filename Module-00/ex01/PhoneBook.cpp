@@ -6,7 +6,7 @@
 /*   By: frukundo <frukundo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 07:11:11 by frukundo          #+#    #+#             */
-/*   Updated: 2024/03/24 11:06:19 by frukundo         ###   ########.fr       */
+/*   Updated: 2024/03/24 23:22:10 by frukundo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ PhoneBook::~PhoneBook()
     std::cout << "SEE YOU SOON!" << std::endl;
 }
 
-using std::cin;
 
 std::string getFormattedField(const std::string& field)
 {
@@ -66,7 +65,7 @@ void PhoneBook::addContact(void)
     while (true) {
         getline(std::cin, input);
         if (input.empty() || input.find_first_not_of(" \t") == std::string::npos) {
-			cin.clear();
+			std::cin.clear();
             std::cout << "Last name cannot be empty or contain only spaces or tabs. Please enter again: ";
             continue;
         }
@@ -79,7 +78,7 @@ void PhoneBook::addContact(void)
     while (true) {
         getline(std::cin, input);
         if (input.empty() || input.find_first_not_of(" \t") == std::string::npos) {
-			cin.clear();
+			std::cin.clear();
             std::cout << "Nickname cannot be empty or contain only spaces or tabs. Please enter again: ";
             continue;
         }
@@ -91,10 +90,10 @@ void PhoneBook::addContact(void)
   	while (1)
 	{
 		std::cout << "Phone number 📞: ";
-		getline(cin, input);
+		getline(std::cin, input);
 		if (!input.empty() && input.find_first_not_of("0123456789") != std::string::npos) 
 		{
-			cin.clear();
+			std::cin.clear();
 			std::cout << "Phone number must be fully composed by numbers" << std::endl;
 			continue;
 		}
@@ -148,14 +147,14 @@ void PhoneBook::searchContact(void)
 	while (1)
 	{
 		std::cout << "Please insert the index of the contact you'd like to display: ";
-		getline(cin, index);
+		getline(std::cin, index);
 		if (!index.empty() && index.find_first_not_of("0123456789") == std::string::npos)
 		{
 			conv_index = atoi(index.c_str());
 			if (conv_index <= MAX_CONTACT_INDEX)
 				break;
 		}
-		cin.clear();
+		std::cin.clear();
 		std::cout << "Invalid input" << std::endl;
 	}
 	if ((size_t)conv_index > (count - 1))

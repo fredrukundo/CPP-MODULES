@@ -6,14 +6,10 @@
 /*   By: frukundo <frukundo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 09:17:08 by frukundo          #+#    #+#             */
-/*   Updated: 2024/03/24 06:37:45 by frukundo         ###   ########.fr       */
+/*   Updated: 2024/03/25 03:47:07 by frukundo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream> // cin, cout, endl
-#include <string> // string class
-#include <cstdlib> // exit() && EXIT_* macros
-#include <stdio.h> // clearerr()
 #include "PhoneBook.hpp"
 
 using std::cin;

@@ -6,12 +6,15 @@
 /*   By: frukundo <frukundo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 07:11:15 by frukundo          #+#    #+#             */
-/*   Updated: 2024/03/24 04:53:30 by frukundo         ###   ########.fr       */
+/*   Updated: 2024/03/25 03:46:34 by frukundo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
+
+#include <cstdlib> // exit() && EXIT_* macros
+#include <stdio.h> // clearerr()
 
 #include "Contact.hpp"
 
