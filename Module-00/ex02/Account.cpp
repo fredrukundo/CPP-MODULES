@@ -6,7 +6,7 @@
 /*   By: frukundo <frukundo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 00:42:19 by frukundo          #+#    #+#             */
-/*   Updated: 2024/03/29 02:24:10 by frukundo         ###   ########.fr       */
+/*   Updated: 2024/03/29 06:20:38 by frukundo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void    Account::makeDeposit( int deposit ) {
     _amount += deposit;
     std::cout << "deposit:" << deposit << ";"
                 << "amount:" << _amount << ";"
-                << "nb_deposit:" << _nbDeposits << std::endl;
+                << "nb_deposits:" << _nbDeposits << std::endl;
 }
 
 bool    Account::makeWithdrawal(int withdrawal ) {
@@ -110,7 +110,7 @@ bool    Account::makeWithdrawal(int withdrawal ) {
     _totalAmount -= withdrawal;
     _amount -= withdrawal;
     std::cout << "amount:" << _amount << ";"
-                << "nb_deposit:" << _nbDeposits << std::endl;
+                << "nb_withdrawals:" << _nbWithdrawals << std::endl;
     return true;
 }
 
