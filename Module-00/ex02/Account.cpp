@@ -6,14 +6,16 @@
 /*   By: frukundo <frukundo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 00:42:19 by frukundo          #+#    #+#             */
-/*   Updated: 2024/03/24 00:48:02 by frukundo         ###   ########.fr       */
+/*   Updated: 2024/03/29 02:24:10 by frukundo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "Account.hpp"
 #include <ctime>
 #include <iostream>
 #include <iomanip>
+
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount= 0;
