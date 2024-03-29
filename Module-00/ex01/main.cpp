@@ -6,15 +6,11 @@
 /*   By: frukundo <frukundo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 09:17:08 by frukundo          #+#    #+#             */
-/*   Updated: 2024/03/25 03:47:07 by frukundo         ###   ########.fr       */
+/*   Updated: 2024/03/29 02:20:05 by frukundo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-
-using std::cin;
-using std::cout;
-using std::endl;
 
 static inline bool isInputValid(const std::string& input) {
     return input == "ADD" || input == "SEARCH" || input == "EXIT";
@@ -22,13 +18,13 @@ static inline bool isInputValid(const std::string& input) {
 
 void printWelcome(void)
 {
-    cout << "*-------------------------------------------*\n"
+    std::cout << "*-------------------------------------------*\n"
             "|                                           |\n"
             "|          ADD - Add a new contact          |\n"
             "|          SEARCH - Display a contact       |\n"
             "|          EXIT - Exit PhoneBook            |\n"
             "|                                           |\n"
-            "*-------------------------------------------*" << endl;
+            "*-------------------------------------------*" << std::endl;
 }
 
 std::string getInput(void)
@@ -37,17 +33,17 @@ std::string getInput(void)
 
     while (1)
     {
-        cout << "Enter a Command :> ";
-        getline(cin, input);
-        if (cin.eof() == true)
+        std::cout << "Enter a Command :> ";
+        getline(std::cin, input);
+        if (std::cin.eof() == true)
         {
-            cin.clear();
+            std::cin.clear();
             clearerr(stdin);
         }
         if (!input.empty() && isInputValid(input))
             break;
-        cin.clear();
-        cout << "Please insert a valid input" << endl;
+        std::cin.clear();
+        std::cout << "Please insert a valid input" << std::endl;
     }
     return input;
 }
@@ -67,7 +63,7 @@ int main(void)
             pb.searchContact();
         else
         {
-            cout << "EXIT" << endl;
+            std::cout << "EXIT" << std::endl;
             return EXIT_SUCCESS;
         }
     }
