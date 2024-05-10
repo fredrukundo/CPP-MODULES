@@ -6,32 +6,37 @@
 /*   By: frukundo <frukundo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 07:11:15 by frukundo          #+#    #+#             */
-/*   Updated: 2024/03/25 03:46:34 by frukundo         ###   ########.fr       */
+/*   Updated: 2024/05/10 18:19:58 by frukundo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
-#include <cstdlib> // exit() && EXIT_* macros
-#include <stdio.h> // clearerr()
-
+#include <iomanip>
+#include <string>
+#include <limits>
+#include <sstream>
 #include "Contact.hpp"
 
-#define MAX_CONTACTS 8
-#define MAX_CONTACT_INDEX 7
+class PhoneBook {
 
-class PhoneBook
-{
 private:
-    size_t count;
-    Contact contacts[MAX_CONTACTS];
+	int		index;
+	Contact	contacts[8];
+	void	print();
 
 public:
-    PhoneBook();
-    ~PhoneBook();
-    void addContact(void);
-    void searchContact(void);
+	PhoneBook();
+
+	void	add();
+	void	search();
 };
+
+void	puterr();
+int		check_empty(Contact contact);
+int		check_phone_number(std::string phoneNumber);
+int		is_full_spaces(std::string str);
+void	get_line(std::string &str, std::string name);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: frukundo <frukundo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 05:49:29 by frukundo          #+#    #+#             */
-/*   Updated: 2024/03/29 02:17:05 by frukundo         ###   ########.fr       */
+/*   Updated: 2024/05/10 17:47:09 by frukundo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@
 #include <iomanip>
 #include <string>
 
-class Contact
-{
+class Contact {
 private:
-	std::string first_name;
+	std::string	first_name;
 	std::string last_name;
 	std::string nickname;
 	std::string phone_number;
@@ -28,18 +27,13 @@ private:
 
 public:
 	Contact();
-	~Contact();
-	void setFirstName(std::string str);
-	void setLastName(std::string str);
-	void setNickName(std::string str);
-	void setPhoneNumber(std::string str);
-	void setDarkestSecret(std::string str);
-
-	const std::string &getFirstName(void) const;
-	const std::string &getLastName(void) const;
-	const std::string &getNickname(void) const;
-	const std::string &getPhoneNumber(void) const;
-	const std::string &getDarkestSecret(void) const;
+	Contact(std::string first, std::string last, std::string nickname
+			, std::string phone, std::string secret);
+	std::string	getFirstName();
+	std::string	getLastName();
+	std::string	getNickname();
+	std::string	getPhoneNumber();
+	std::string	getDarkestSecret();
 };
 
 #endif

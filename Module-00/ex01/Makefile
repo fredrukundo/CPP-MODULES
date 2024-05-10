@@ -6,7 +6,7 @@
 #    By: frukundo <frukundo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/23 10:09:40 by frukundo          #+#    #+#              #
-#    Updated: 2024/03/23 10:24:18 by frukundo         ###   ########.fr        #
+#    Updated: 2024/05/10 17:52:02 by frukundo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 RM		= rm -rf
 
-SRC		= Contact.cpp PhoneBook.cpp main.cpp
+SRC		= Contact.cpp PhoneBook.cpp main.cpp helper.cpp
 
 OBJ		= $(SRC:.cpp=.o)
 
