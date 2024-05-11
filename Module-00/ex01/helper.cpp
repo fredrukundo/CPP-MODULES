@@ -6,7 +6,7 @@
 /*   By: frukundo <frukundo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 17:43:07 by frukundo          #+#    #+#             */
-/*   Updated: 2024/05/10 18:20:34 by frukundo         ###   ########.fr       */
+/*   Updated: 2024/05/11 00:50:49 by frukundo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,16 @@ void	puterr()
 	exit(1);
 }
 
-int	check_empty(Contact contact)
+int	is_empty(Contact contact)
 {
-	if (contact.getDarkestSecret() == "EMPTY" && contact.getFirstName() == "EMPTY"
-		&& contact.getLastName() == "EMPTY" && contact.getNickname() == "EMPTY"
-		&& contact.getPhoneNumber() == "EMPTY")
+	if (contact.getDarkestSecret() == "" && contact.getFirstName() == ""
+		&& contact.getLastName() == "" && contact.getNickname() == ""
+		&& contact.getPhoneNumber() == "")
 		return (1);
 	return (0);
 }
 
-int	is_full_spaces(std::string str)
+int	is_space(std::string str)
 {
 	for (size_t i = 0; i < str.length() ; i++)
 	{
@@ -56,7 +56,7 @@ void	get_line(std::string &str, std::string name)
 {
 	if (getline(std::cin, str).eof())
 		puterr();
-	while (str.empty() || is_full_spaces(str))
+	while (str.empty() || is_space(str))
 	{
 		std::cout << "Contact cannot have any empty field." << std::endl << name;
 		if (getline(std::cin, str).eof())

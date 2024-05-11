@@ -6,7 +6,7 @@
 /*   By: frukundo <frukundo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 09:17:08 by frukundo          #+#    #+#             */
-/*   Updated: 2024/05/10 18:36:44 by frukundo         ###   ########.fr       */
+/*   Updated: 2024/05/11 00:13:13 by frukundo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	main(void)
 		if (getline(std::cin, input).eof())
 			break ;
 		if (input == "ADD")
-			book.add();
+			book.addContact();
 		if (input == "SEARCH")
-			book.search();
+			book.searchContact();
 		if (input == "EXIT")
 			break ;
 	}

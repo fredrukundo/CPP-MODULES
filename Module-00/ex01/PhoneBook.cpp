@@ -6,7 +6,7 @@
 /*   By: frukundo <frukundo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 07:11:11 by frukundo          #+#    #+#             */
-/*   Updated: 2024/05/10 18:19:23 by frukundo         ###   ########.fr       */
+/*   Updated: 2024/05/11 00:52:35 by frukundo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,30 @@ PhoneBook::PhoneBook()
 	this->index = 0;
 }
 
-std::string	truncate(std::string str)
+std::string	inputFormat(std::string str)
 {
 	if(str.length() > 10)
 		return str.substr(0, 9) + '.';
 	return str;
 }
 
-void	PhoneBook::print()
+void	PhoneBook::display()
 {
 	for (int i = 0; i < 8; i++)
 	{
 		std::cout << std::right << std::setw(10) << i;
 		std::cout << "|";
-		std::cout << std::right << std::setw(10) << truncate(contacts[i].getFirstName());
+		std::cout << std::right << std::setw(10) << inputFormat(contacts[i].getFirstName());
 		std::cout << "|";
-		std::cout << std::right << std::setw(10) << truncate(contacts[i].getLastName());
+		std::cout << std::right << std::setw(10) << inputFormat(contacts[i].getLastName());
 		std::cout << "|";
-		std::cout << std::right << std::setw(10) << truncate(contacts[i].getNickname());
+		std::cout << std::right << std::setw(10) << inputFormat(contacts[i].getNickname());
 		std::cout << "\0";
 		std::cout << std::endl;
 	}
 }
 
-void	PhoneBook::add()
+void	PhoneBook::addContact()
 {
 	std::cout << "First Name: ";
 	std::string	firstName;
@@ -78,24 +78,24 @@ void	PhoneBook::add()
 											, darkestSecret);
 }
 
-void	PhoneBook::search()
+void	PhoneBook::searchContact()
 {
 	std::string	index;
 	int i;
 
-	this->print();
+	this->display();
 	std::cout << "Enter the index of the entry to display: ";
 	if (getline(std::cin, index).eof())
 		puterr();
 	std::stringstream o(index);
 	if (!(o >> i) || i < 0 || i > 7)
 	{
-		std::cout << "Wrong index." << std::endl;
+		std::cout << "invalid index." << std::endl;
 		return ;
 	}
-	if (check_empty(contacts[i]))
+	if (is_empty(contacts[i]))
 	{
-		std::cout << "Index empty." << std::endl;
+		std::cout << "Index is empty." << std::endl;
 		return ;
 	}
 	std::cout << std::left << std::setw(14) << "First name";
