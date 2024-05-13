@@ -6,7 +6,7 @@
 /*   By: frukundo <frukundo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 07:11:11 by frukundo          #+#    #+#             */
-/*   Updated: 2024/05/11 00:52:35 by frukundo         ###   ########.fr       */
+/*   Updated: 2024/05/13 12:04:03 by frukundo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	PhoneBook::searchContact()
 	int i;
 
 	this->display();
-	std::cout << "Enter the index of the entry to display: ";
+	std::cout << "Enter the index of the contact to display: ";
 	if (getline(std::cin, index).eof())
 		puterr();
 	std::stringstream o(index);
