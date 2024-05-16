@@ -6,7 +6,7 @@
 /*   By: frukundo <frukundo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 05:48:44 by frukundo          #+#    #+#             */
-/*   Updated: 2024/05/10 17:46:48 by frukundo         ###   ########.fr       */
+/*   Updated: 2024/05/16 02:06:22 by frukundo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ Contact::Contact()
 Contact::Contact(std::string first, std::string last, std::string nickname
 			, std::string phone, std::string secret) : first_name(first)
 			, last_name(last), nickname(nickname), phone_number(phone)
-			, darkest_secret(secret)
-{
-	return ;
-}
+			, darkest_secret(secret) {}
 
 std::string	Contact::getFirstName()
 {
