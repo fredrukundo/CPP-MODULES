@@ -5,11 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: frukundo <frukundo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/24 00:42:19 by frukundo          #+#    #+#             */
-/*   Updated: 2024/03/29 06:20:38 by frukundo         ###   ########.fr       */
+/*   Created: 2024/05/16 04:37:28 by frukundo          #+#    #+#             */
+/*   Updated: 2024/05/16 04:42:48 by frukundo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "Account.hpp"
 #include <ctime>
@@ -81,7 +80,6 @@ void    Account::displayAccountsInfos( void ) {
                 << "withdrawals:" << getNbWithdrawals() << std::endl;
 }
 
-// Accessing account detail private info
 void    Account::makeDeposit( int deposit ) {
     this->_displayTimestamp();
     _nbDeposits++;
@@ -93,6 +91,10 @@ void    Account::makeDeposit( int deposit ) {
     std::cout << "deposit:" << deposit << ";"
                 << "amount:" << _amount << ";"
                 << "nb_deposits:" << _nbDeposits << std::endl;
+}
+
+int     Account::checkAmount( void ) const {
+    return _amount;
 }
 
 bool    Account::makeWithdrawal(int withdrawal ) {
@@ -112,10 +114,6 @@ bool    Account::makeWithdrawal(int withdrawal ) {
     std::cout << "amount:" << _amount << ";"
                 << "nb_withdrawals:" << _nbWithdrawals << std::endl;
     return true;
-}
-
-int     Account::checkAmount( void ) const {
-    return _amount;
 }
 
 void    Account::displayStatus( void ) const {
