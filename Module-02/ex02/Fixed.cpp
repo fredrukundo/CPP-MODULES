@@ -61,21 +61,25 @@ bool Fixed::operator!=( const Fixed& other) const
 }
 
 /* ---------- arithmetic operators --------*/
-float Fixed::operator+(const Fixed &other) const
+Fixed Fixed::operator+(const Fixed &other) const
 {
-    return (this->toFloat() + other.toFloat());
+    return Fixed(this->toFloat() + other.toFloat());
 }
-float Fixed::operator-(const Fixed &other) const
+Fixed Fixed::operator-(const Fixed &other) const
 {
-    return (this->toFloat() - other.toFloat());
+    return Fixed(this->toFloat() - other.toFloat());
 }
-float Fixed::operator*(const Fixed &other) const
+Fixed Fixed::operator*(const Fixed &other) const
 {
-    return (this->toFloat() * other.toFloat());
+   //casting for larger multiplications
+   Fixed    result;
+    result.value = static_cast<ssize_t>(this->value) * other.value;
+   result.value >>= fractBits;
+   return (result);
 }
-float Fixed::operator/(const Fixed &other) const
+Fixed Fixed::operator/(const Fixed &other) const
 {
-    return (this->toFloat() / other.toFloat());
+    return Fixed(this->toFloat() / other.toFloat());
 }
 
 /* ---------- post-incrementation and de-incrementation --------*/
@@ -124,37 +128,25 @@ float	Fixed::toFloat( void ) const
 
 int	Fixed::toInt( void ) const
 {
-	return (this->value >> this->fractBits);
+	return ((unsigned)this->value / (1 << this->fractBits));
 }
 
 Fixed& Fixed::min( Fixed& first, Fixed& second)
 {
-    if (first.toFloat() <= second.toFloat())
-		return (first);
-	else
-		return (second);
+    return (first < second) ? first : second;
 }
 const Fixed& Fixed::min( const Fixed& first, const Fixed& second)
 {
-    if (first.toFloat() <= second.toFloat())
-		return (first);
-	else
-		return (second);
+    return (first < second) ? first : second;
 }
 
 Fixed& Fixed::max( Fixed& first, Fixed& second)
 {
-    if (first.toFloat() >= second.toFloat())
-		return (first);
-	else
-		return (second);
+ return (first > second) ? first : second;
 }
 const Fixed& Fixed::max( const Fixed& first, const Fixed& second)
 {
-    if (first.toFloat() >= second.toFloat())
-		return (first);
-	else
-		return (second);
+   return (first > second) ? first : second;
 }
 
 /* ----- Overload for ostream -------*/

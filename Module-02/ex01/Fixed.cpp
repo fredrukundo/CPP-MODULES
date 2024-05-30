@@ -54,7 +54,7 @@ float	Fixed::toFloat( void ) const
 
 int	Fixed::toInt( void ) const
 {
-	return (this->value >> this->fractBits);
+	return ((unsigned)this->value / (1 << this->fractBits));
 }
 
 std::ostream &operator<<(std::ostream &o, Fixed const &fixed)

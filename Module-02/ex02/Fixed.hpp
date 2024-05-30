@@ -32,10 +32,10 @@ public:
 	bool operator!=(const Fixed &other) const;
 
 	//arithmetic operators
-	float operator-(const Fixed &other) const;
-	float operator+(const Fixed &other) const;
-	float operator*(const Fixed &other) const;
-	float operator/(const Fixed &other) const;
+	Fixed operator-(const Fixed &other) const;
+	Fixed operator+(const Fixed &other) const;
+	Fixed operator*(const Fixed &other) const;
+	Fixed operator/(const Fixed &other) const;
 
 	//post-incrementation and de-incrementation
 	Fixed operator++( int );
