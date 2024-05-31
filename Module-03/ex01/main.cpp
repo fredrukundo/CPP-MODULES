@@ -11,6 +11,9 @@ int main()
 
     ct.attack("clap");
     sv1.attack("scav");
+
+    sv1.beRepaired(12);
+    sv1.takeDamage(60);
     
     ct.takeDamage(40);
     sv2.guardGate();
