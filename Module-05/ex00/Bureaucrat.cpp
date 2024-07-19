@@ -2,7 +2,7 @@
 
 Bureaucrat::Bureaucrat() : name("(default)"), grade(150)
 {
-	std::cout << "Bureaucrat Default Constructor called for " << this->getName() <<
+	std::cout << "Bureaucrat Default Constructor is called whose name is: " << this->getName() <<
 	" with grade of " << this->getGrade() << std::endl;
 }
 
@@ -15,9 +15,8 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : name(name)
 	this->grade = grade;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &src) : name(src.getName())
+Bureaucrat::Bureaucrat(Bureaucrat const &src) : name(src.getName()), grade(src.getGrade())
 {
-	*this = src;
 }
 
 Bureaucrat	&Bureaucrat::operator=(Bureaucrat const &src)

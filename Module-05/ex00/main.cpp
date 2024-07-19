@@ -4,6 +4,7 @@ int main()
 {
     try
     {
+        
         Bureaucrat a;
         std::cout << a << std::endl;
         a.incrementGrade();
@@ -15,6 +16,8 @@ int main()
         Bureaucrat c("duke", 10);
         c = b;
         std::cout << c << std::endl;
+        Bureaucrat d(b);
+        std::cout << d << std::endl;
     }
     catch (const std::exception &e)
     {
