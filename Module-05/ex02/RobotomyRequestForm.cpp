@@ -24,16 +24,10 @@ std::string const	&RobotomyRequestForm::getTarget() const
 
 void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-	// this->checkExecution(executor);
-	// std::srand(std::time(NULL));
-	// std::cout << "Drilling noises." << std::endl;
-	// std::cout << this->_target << " has " << (std::rand() % 2 ? "" : "not ") << "been robotomized " << "successfully." << std::endl;
+	this->checkExecution(executor);
 	int	success;
-
-	/* Set Seed */
 	srand((unsigned) time(NULL));
 	success = rand() % 2;
-	(void)executor;
 	if (success)
 		std::cout << this->_target << " has been robotomized successfully" << std::endl;
 	else

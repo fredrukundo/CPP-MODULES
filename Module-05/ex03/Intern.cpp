@@ -54,7 +54,7 @@ AForm	*Intern::makeForm(std::string const name, std::string const target)
 						form = NULL;
 						break ;
 				}
-				std::cout << "Intern creates " << *form << "." << std::endl;
+				std::cout << "Intern creates " << *form << std::endl;
 				return form;
 			}
 		}
