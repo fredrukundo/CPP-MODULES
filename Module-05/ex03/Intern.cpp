@@ -21,7 +21,7 @@ Intern::~Intern() {}
 
 const char*	Intern::FormNotFound::what() const throw()
 {
-	return "Form not found";
+	return "Form does not exist!";
 }
 
 AForm	*Intern::makeForm(std::string const name, std::string const target)
