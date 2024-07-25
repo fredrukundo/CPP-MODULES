@@ -12,6 +12,7 @@ class Array {
         Array(Array const &cpy);
         Array   &operator=(Array const &src);
         T       &operator[](unsigned int i);
+        T       &operator[](unsigned int i) const;
         ~Array();
         unsigned int	size() const;
 };
