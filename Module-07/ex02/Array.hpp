@@ -1,5 +1,6 @@
 #pragma once
 
+
 template <typename T>
 class Array {
     private:
@@ -14,5 +15,4 @@ class Array {
         ~Array();
         unsigned int	size() const;
 };
-
 #include "Array.tpp"

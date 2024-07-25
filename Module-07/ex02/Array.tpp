@@ -6,7 +6,7 @@ template <typename T>
 Array<T>::Array()
 {
     this->arr = new T[0];
-    this->_sie = 0;
+    this->_size = 0;
 }
 
 template <typename T>
@@ -36,7 +36,7 @@ template <typename T>
 T   &Array<T>::operator[](unsigned int i)
 {
     if ( i < 0 || i >= this->_size)
-        throw std::out_of_range("Index out of bounds");
+        throw std::out_of_range("Index is out of bounds");
     return this->arr[i];
 }
 

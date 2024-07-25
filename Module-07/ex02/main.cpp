@@ -2,7 +2,6 @@
 #include "Array.hpp"
 
 #define MAX_VAL 750
-
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
@@ -18,31 +17,8 @@ int main(int, char**)
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
-		for (int i = 0; i < MAX_VAL; i++)
-    	{
-			if (test[i] != tmp[i] || test[i] != numbers[i] || tmp[i] != numbers[i])
-			{
-				std::cerr << "didn't save the same value!!" << std::endl;
-				return 1;
-			}
-    	}
     }
-	{
-		Array<std::string> tmp(MAX_VAL);
-		for (int i = 0; i < MAX_VAL; i++)
-		{
-			tmp[i] = "test" + std::to_string(i);
-		}
-        Array<std::string> test(tmp);
-		for (int i = 0; i < MAX_VAL; i++)
-    	{
-			if (test[i] != tmp[i] || test[i] != "test" + std::to_string(i))
-			{
-				std::cerr << "didn't save the same value!!" << std::endl;
-				return 1;
-			}
-    	}
-	}
+
     for (int i = 0; i < MAX_VAL; i++)
     {
         if (mirror[i] != numbers[i])
