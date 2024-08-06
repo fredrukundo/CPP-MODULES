@@ -24,8 +24,8 @@ int main()
 			++it;
 		}
 		MutantStack<int> s(mstack);
-		MutantStack<int>::iterator it1 = mstack.begin();
-		MutantStack<int>::iterator ite1 = mstack.end();
+		MutantStack<int>::iterator it1 = s.begin();
+		MutantStack<int>::iterator ite1 = s.end();
 		std::cout << "Printing mutant stack (copy constructor): " << std::endl;
 		while (it1 != ite1)
 		{
