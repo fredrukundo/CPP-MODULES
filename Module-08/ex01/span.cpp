@@ -71,19 +71,16 @@ unsigned int Span::longestSpan()
 	  the shortest span could be zero, as the difference 
 	  between two identical numbers is zero.
 */
-static int randomInt(size_t size)
-{
-	return (rand() % size) + 1;
-}
 
-void Span::fill(void)
+
+void Span::fill(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-	size_t start = _span.size();
-	srand(static_cast<unsigned int>(time(0)));
-	while (start < n)
-	{
-		usleep(50);
-		_span.push_back(randomInt(n));
-		start++;
-	}
+	if (begin > end) // for invalid range
+		throw Span::SpanFullException();
+	
+	std::vector<int>	vec(begin, end);
+	if (vec.size() + this->_span.size() > this->n)
+		throw Span::SpanFullException();
+	_span.insert(_span.end(), vec.begin(), vec.end());
+	
 }
