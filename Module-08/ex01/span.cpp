@@ -66,12 +66,6 @@ unsigned int Span::longestSpan()
 	return (*std::max_element(this->_span.begin(), this->_span.end()) - *std::min_element(this->_span.begin(), this->_span.end()));
 }
 
-/*
-	 If the random numbers generated include duplicates,
-	  the shortest span could be zero, as the difference 
-	  between two identical numbers is zero.
-*/
-
 
 void Span::fill(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {

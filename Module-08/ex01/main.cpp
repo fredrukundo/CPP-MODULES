@@ -22,6 +22,7 @@ int main(void)
 	std::srand(static_cast<unsigned int>(std::time(NULL)));
 	
 	Span sp1 = Span(10000);
+	
 	std::vector<int> vec;
 	for (size_t i = 0; i < 10000; i++)
 	{
