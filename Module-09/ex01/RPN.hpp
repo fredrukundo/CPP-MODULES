@@ -2,7 +2,12 @@
 
 #include <iostream>
 #include <stack>
-
+/*
+    Reverse Polish Notation is a postfix notation where operators come after their operands
+    i used std::stack"
+    bcose: 1.LIFO order :bcose in RPN the most recent operands are used first
+           
+*/
 class RPN {
     private:
         std::stack<int> data;
@@ -11,7 +16,7 @@ class RPN {
         RPN &operator=(RPN const &);
         ~RPN();
 
-        void    calc(std::string const &expression);
+        void    evaluateExpression(std::string const &expression);
         void    process(char c);
 
         class RPNException : public std::exception {

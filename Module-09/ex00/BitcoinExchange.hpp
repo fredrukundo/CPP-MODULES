@@ -3,15 +3,20 @@
 #include <iostream>
 #include <stdexcept>
 #include <map>
-
+/*
+    std::map:
+        bcose 1. key-value pair storage
+              2. sorted order
+              3. unique key
+*/
 class BitcoinExchange {
     private:
         std::map<std::string, double> data;
-        bool    checkValue(const std::string &valueStr);
-        bool    checkDate(const std::string &dateStr);
+        bool    isValidValue(const std::string &valueStr);
+        bool    isValidDate(const std::string &dateStr);
         void    parseDB();
-        void    putPrice(std::string const &date, double const value);
         void    parseInput(std::string const &fileName);
+        void    calculateValue(std::string const &date, double const value);
         BitcoinExchange();
         BitcoinExchange(BitcoinExchange const &);
         BitcoinExchange &operator=(BitcoinExchange const &);

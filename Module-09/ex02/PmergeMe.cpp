@@ -211,8 +211,3 @@ void print(std::vector<int> &Vec, std::deque<int> &Deq)
     std::cout << std::endl;
     i++;
 }
-
-int midPoint(int start, int end)
-{
-    return(start + (end - start) / 2);
-}

@@ -25,7 +25,6 @@ class PmergeMe
 
 public:
 
-    //Orthodox Canonical Form
     PmergeMe();
     ~PmergeMe();
     PmergeMe& operator=(const PmergeMe& other);
@@ -49,4 +48,3 @@ public:
 // Utility functions
 void print(std::vector<int> &, std::deque<int> &);
 void caluclateTime(std::vector<int> &, std::deque <int> &, double &, double &);
-int midPoint(int start, int end);

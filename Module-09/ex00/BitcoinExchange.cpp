@@ -29,17 +29,17 @@ int	isLeapYear(int year)
 int	daysInMonth(int year, int month)
 {
 	static const int daysPerMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-	if (month == 1 && isLeapYear(year))
+	if (month == 1 && isLeapYear(year)) // 1 for february
 		return 29;
 	return daysPerMonth[month];
 }
 
-bool	BitcoinExchange::checkDate(const std::string &dateStr)
+bool	BitcoinExchange::isValidDate(const std::string &dateStr)
 {
-	std::tm tm = {};
+	std::tm tm = {};// structure for storing date and time infos
 	std::istringstream	ss(dateStr);
 
-	ss >> std::get_time(&tm, "%Y-%m-%d");
+	ss >> std::get_time(&tm, "%Y-%m-%d");//convert tring to date
 
 	if (ss.fail() || !ss.eof())
 		return false;
@@ -50,7 +50,7 @@ bool	BitcoinExchange::checkDate(const std::string &dateStr)
 	return true;
 }
 
-bool	BitcoinExchange::checkValue(const std::string &valueStr)
+bool	BitcoinExchange::isValidValue(const std::string &valueStr)
 {
 	std::istringstream	ss(valueStr);
 	double				value;
@@ -70,29 +70,29 @@ void	BitcoinExchange::parseDB()
 
 	if (!dataFile.is_open())
 		throw std::runtime_error("Error: Couldn't open file.");
-	std::getline(dataFile, line);
+	std::getline(dataFile, line);//Read and Skip the First Line (Header)
 	while (std::getline(dataFile, line))
 	{
-		date = line.substr(0, line.find(',', 0));
+		date = line.substr(0, line.find(',', 0)); 
 		value = line.substr(line.find(',', 0) + 1, line.size());
-		if (!checkDate(date) || !checkValue(value))
+		if (!isValidDate(date) || !isValidValue(value))
 		{
 			dataFile.close();
 			throw BitcoinExchange::DBFormatException();
 		}
-		this->data[date] = std::stod(value, 0);
+		this->data[date] = std::stod(value, 0);// string to double from beginning (0)
 	}
 	dataFile.close();
 	if (this->data.empty())
 		throw BitcoinExchange::DBEmptyException();
 }
 
-void	BitcoinExchange::putPrice(std::string const &date, double const value)
+void	BitcoinExchange::calculateValue(std::string const &date, double const value)
 {
-	std::map<std::string, double>::iterator it;
+	std::map<std::string, double>::iterator it;// iterator for traversing the map
 	double 									price;
 
-	it = this->data.lower_bound(date);
+	it = this->data.lower_bound(date);//pointer to the 1st element that is not less than the given key(closest date)
 	if (it != this->data.end() && it->first == date)
 		price = value * it->second;
 	else if (it == this->data.begin())
@@ -125,13 +125,13 @@ void	BitcoinExchange::parseInput(std::string const &fileName)
 			continue ;
 		}
 		date = line.substr(0, pos);
-		if (!checkDate(date))
+		if (!isValidDate(date))
 		{
 			std::cerr << "Error: bad input ==> " << date << std::endl;
 			continue ;
 		}
 		value = line.substr(pos + 3, line.size());
-		if (!checkValue(value))
+		if (!isValidValue(value))
 		{
 			std::cerr << "Error: not a positive number." << std::endl;
 			continue ;
@@ -142,7 +142,7 @@ void	BitcoinExchange::parseInput(std::string const &fileName)
 			std::cerr << "Error: too large a number." << std::endl;
 			continue ;
 		}
-		this->putPrice(date, value_nb);
+		this->calculateValue(date, value_nb);
 	}
 	inputFile.close();
 }

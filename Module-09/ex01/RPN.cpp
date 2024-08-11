@@ -33,12 +33,12 @@ void    RPN::process(char c)
         this->data.push(a + b);
         break;
     case '-':
-        this->data.push(a - b);
+        this->data.push(b - a);
         break;
     case '/':
         if (a == 0)
             throw RPN::RPNException();
-        this->data.push(a / b);
+        this->data.push(b / a);
         break;
     
     default:
@@ -46,7 +46,7 @@ void    RPN::process(char c)
     }
 }
 
-void    RPN::calc(std::string const &expression)
+void    RPN::evaluateExpression(std::string const &expression)
 {
     std::string operations = "*/-+";
     
@@ -77,7 +77,7 @@ void    RPN::calculate(std::string const &expression )
 
     try
     {
-        obj.calc(expression);
+        obj.evaluateExpression(expression);
     }
     catch(const std::exception& e)
     {
